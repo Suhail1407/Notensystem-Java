@@ -1,68 +1,82 @@
 /**
- * Die Klasse Fach repräsentiert ein einzelnes Schulfach im Notensystem.
- * Ein Fach besitzt genau einen Namen, wie z.B. "Mathe" oder "Deutsch".
- * Diese Klasse wird später in der Klasse Note verwendet, um festzulegen,
- * auf welches Fach sich eine Note bezieht.
+ * Die Klasse Schueler bildet einen einzelnen Schüler im Notensystem ab.
+ * Jeder Schüler besitzt einen Namen und ein Alter, die beim Erstellen
+ * des Objekts über den Konstruktor gesetzt werden.
  */
-public class Fach {
+public class Schueler {
 
-    // -----------------------------------------
-    // Attribut
-    // -----------------------------------------
+    // -------------------------
+    // Attribute eines Schülers
+    // -------------------------
 
     /**
-     * Name des Faches, zum Beispiel "Mathe" oder "Englisch".
-     * Das Attribut ist private, um die Daten zu schützen.
+     * Der Name des Schülers.
+     * Dieses Attribut ist private, damit es nicht direkt von außen verändert werden kann.
      */
-    private String fachName;
+    private String name;
 
-    // -----------------------------------------
+    /**
+     * Das Alter des Schülers in Jahren.
+     * Auch dieses Attribut ist private, um die Daten zu schützen.
+     */
+    private int alter;
+
+
+    // -------------------------
     // Konstruktor
-    // -----------------------------------------
+    // -------------------------
 
     /**
-     * Konstruktor zum Erstellen eines Fach-Objekts.
-     * Beim Erstellen muss zwingend ein Fachname angegeben werden.
+     * Konstruktor zum Erstellen eines neuen Schueler-Objekts.
+     * Beim Erzeugen müssen Name und Alter zwingend angegeben werden.
      *
-     * @param fachName Name des Faches
+     * @param name  Der Name des Schülers
+     * @param alter Das Alter des Schülers
      */
-    public Fach(String fachName) {
-        this.fachName = fachName;
+    public Schueler(String name, int alter) {
+        this.name = name;
+        this.alter = alter;
     }
 
-    // -----------------------------------------
-    // Getter Methode
-    // -----------------------------------------
+
+    // -------------------------
+    // Getter-Methoden
+    // -------------------------
 
     /**
-     * Gibt den Namen des Faches zurück.
-     * Andere Klassen (z.B. Note oder GUI) können so den Namen auslesen,
-     * ohne dass das Attribut direkt verändert werden kann.
+     * Liefert den Namen des Schülers zurück.
      *
-     * @return Name des Faches
+     * @return Name des Schülers
      */
-    public String getFachName() {
-        return fachName;
+    public String getName() {
+        return name;
     }
 
-    // -----------------------------------------
-    // Ausgabeformat
-    // -----------------------------------------
+    /**
+     * Liefert das Alter des Schülers zurück.
+     *
+     * @return Alter des Schülers
+     */
+    public int getAlter() {
+        return alter;
+    }
+
+
+    // -------------------------
+    // Ausgabe-Methode
+    // -------------------------
 
     /**
-     * Überschreibt die Standard-Textausgabe eines Objekts.
-     * Dadurch wird beim Ausdrucken des Fach-Objekts nur der Name zurückgegeben.
+     * Überschreibt die Standard-Ausgabe eines Objekts
+     * und liefert eine gut lesbare Darstellung eines Schülers.
      *
-     * Beispiel:
-     * Fach mathe = new Fach("Mathe");
-     * System.out.println(mathe); --> Ausgabe: Mathe
+     * Beispielausgabe:
+     * "Ali (16 Jahre)"
      *
-     * @return Der Fachname als Text
+     * @return formatierter Text zum Schüler
      */
     @Override
     public String toString() {
-        return fachName;
+        return name + " (" + alter + " Jahre)";
     }
 }
-
-
