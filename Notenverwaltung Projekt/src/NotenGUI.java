@@ -328,3 +328,4 @@ public class NotenGUI extends JFrame {
         }
     }
 }
+
